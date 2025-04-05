@@ -1,0 +1,382 @@
+/* ✅ General Styling */
+body {
+  background: #f4f7fc !important; /* Softer background for contrast */
+  font-family: "Poppins", sans-serif;
+  overflow-x: hidden;
+}
+
+/* 🕒 Sidebar Recent History */
+.history-panel {
+  position: fixed;
+  left: 0;
+  top: 110px;
+  width: 350px;
+  height: calc(100vh - 110px); /* Ensure it takes up the full screen height */
+  background: white;
+  padding: 20px;
+  border-right: 2px solid #ddd;
+  box-shadow: 4px 0px 10px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  border-radius: 0 10px 10px 0;
+  overflow: hidden; /* Prevent scrolling inside the aside */
+}
+
+.history-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 15px;
+  color: #333;
+}
+
+/* Styling for the history list container */
+.history-content {
+  flex-grow: 1;
+  overflow-y: hidden; /* Prevent scrolling */
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for each history item */
+.history-item {
+  font-size: 15px;
+  padding: 12px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  background-color: #ffffff;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
+}
+
+#recent-history-list {
+  max-height: 500px; /* Set a max height for the list */
+  overflow: hidden; /* Hide overflow and prevent scrolling */
+  display: flex;
+  flex-direction: column;
+}
+
+.history-item:hover {
+  background-color: #e9f5ff;
+  border-left: 5px solid #0077b6;
+}
+
+/* 🚨 Active Entry */
+.active-entry {
+  background-color: #fff3cd !important;
+  border-left: 5px solid #ffc107;
+}
+
+/* 📩 View More Button */
+#view-more-btn {
+  padding: 10px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: none;
+  background-color: #0077b6;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s;
+  margin-top: 10px;
+}
+
+#view-more-btn:hover {
+  background-color: #005f8b;
+}
+
+/* 🌟 Dashboard */
+.dashboard {
+  margin-left: 380px;
+  padding: 40px;
+  text-align: center;
+  background: #f4f7fc;
+  min-height: 100vh;
+}
+
+/* 🕒 Live Clock */
+#clock {
+  font-size: 48px;
+  font-weight: bold;
+  color: #333;
+  letter-spacing: 2px;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* 📊 Attendance Statistics */
+.stats-grid {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+}
+
+.stat-card {
+  padding: 25px;
+  border-radius: 12px;
+  font-size: 22px;
+  min-width: 280px;
+  text-align: center;
+  box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.1);
+  background: white;
+  color: black;
+  transition: all 0.3s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+/* ⏰ Time In & Out Buttons */
+.time-btn {
+  font-size: 24px;
+  padding: 18px 40px;
+  width: 260px;
+  font-weight: bold;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.time-in-btn {
+  background-color: #0099cc;
+  color: white;
+}
+
+.time-out-btn {
+  background-color: #ff6600;
+  color: white;
+}
+
+.time-btn:hover {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+/* 📊 Stats Container */
+.stats-container {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.stat-card.total-professors {
+  background-color: #0077b6 !important;
+  color: white !important;
+}
+
+.stat-card.total-attendance {
+  background-color: #ffaa00 !important;
+  color: black !important;
+}
+
+.stat-card.pending-checkouts {
+  background-color: #d43f3a !important;
+  color: white !important;
+  font-family: 'Poppins', sans-serif; /* Ensure consistent font style */
+}
+
+/* ✨ Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ✅ Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .history-panel {
+        width: 100%;
+        position: relative;
+        height: auto;
+        border-right: none;
+        box-shadow: none;
+        border-radius: 0;
+        margin-top: 20px;
+    }
+
+    .dashboard {
+        margin-left: 0;
+        padding: 20px;
+    }
+
+    .stats-container {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+    }
+
+    .stat-card {
+        min-width: 100%;
+        margin-bottom: 15px;
+    }
+
+    /* Time In/Out Buttons */
+    .time-btn {
+        width: 100%;
+        font-size: 20px;
+    }
+
+    .modal-dialog {
+        max-width: 100%;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    #clock {
+        font-size: 36px;
+        text-align: center;
+    }
+
+    .history-panel {
+        display: none; /* Hide the history panel on mobile */
+    }
+
+    .button-container {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .button-container button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .modal-dialog-centered {
+        margin: 1.75rem auto;
+    }
+}
+
+@media (max-width: 600px) {
+    body {
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+}
+
+#view-more-btn.loading {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.hidden {
+  display: none;
+}
+
+input:disabled {
+  pointer-events: none;
+}
+
+/* Remove the sort arrows */
+th.sorting::after, th.sorting_asc::after, th.sorting_desc::after {
+  display: none;  /* Hide the sort arrows/diamonds */
+}
+
+        /* Date display styling */
+        .date-container {
+          text-align: center;
+          margin-bottom: 10px;
+          font-size: 1.2rem;
+          color: #555;
+          font-weight: 500;
+      }
+      
+      /* Mobile Responsive Styles */
+      @media (max-width: 768px) {
+          .dashboard {
+              padding: 15px;
+          }
+          
+          .clock-container h1 {
+              font-size: 2.5rem;
+          }
+          
+          .button-container {
+              display: flex;
+              flex-direction: column;
+              gap: 10px;
+          }
+          
+          .button-container button {
+              width: 100%;
+              padding: 12px;
+              font-size: 1rem;
+          }
+          
+          .stats-container {
+              flex-direction: column;
+              align-items: center;
+          }
+          
+          .stat-card {
+              width: 100%;
+              margin-bottom: 10px;
+          }
+          
+          .history-panel {
+              width: 100%;
+              position: static;
+              margin-top: 20px;
+          }
+          
+          .modal-dialog {
+              margin: 10px;
+          }
+          
+          #camera {
+              width: 100% !important;
+              height: auto !important;
+          }
+          
+          .professor-list {
+              max-height: 200px;
+              overflow-y: auto;
+          }
+          
+          .date-container {
+              font-size: 1rem;
+          }
+      }
+      
+      /* Tablet Styles */
+      @media (min-width: 769px) and (max-width: 1024px) {
+          .button-container {
+              flex-direction: row;
+              justify-content: center;
+              gap: 15px;
+          }
+          
+          .button-container button {
+              width: 45%;
+          }
+          
+          .stats-container {
+              flex-wrap: wrap;
+              gap: 15px;
+          }
+          
+          .stat-card {
+              width: 48%;
+          }
+      }
+
+      #camera {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        margin: 0 auto;
+    }
+    
+    .camera-header {
+        color: #495057;
+        font-weight: 500;
+    }
